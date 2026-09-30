@@ -1,0 +1,159 @@
+.navbar {
+  background: black;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: sticky;
+}
+.logo {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+.logo:hover {
+  color: wheat;
+  cursor: pointer;
+  font-size: 35px;
+  font-style: italic;
+}
+.nav-items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+.nav-link:hover {
+  color: wheat;
+  font-size: 30px;
+  font-style: italic;
+  justify-content: space-between;
+}
+.sign-in {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.sign-in:hover {
+  background-color: #1bd03f7c;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+
+}
+.card-item {
+  background-color: #362f2fee;
+  box-shadow: 10px 10px 10px rgba(250, 166, 9, 0.1);
+  flex: 1;
+  min-width: 400px;
+  max-width: 250px;
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  font-style: oblique;
+  margin-top: 100px;
+}
+.card-item:hover{
+  color: wheat;
+  font-size: 3rem;
+}
+.empty-card {
+  background-color: #000;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+}
+.empty-card img{
+  background-color: wheat;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.card-item h3 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.card-item button {
+  text-align: center;
+  background-color: #a5650b;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 10px 10px 10px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 16px;
+}
+button:hover {
+  background-color: #ff9f1c;
+  font-style: italic;
+}
+.info{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #888;
+}
+.peter{
+  text-align: center;
+  width: 100%;
+  padding: 60px 0;
+  display: block;
+  color: #ffffff;
+  font-style: italic;
+  font-size: 20px;
+}
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  font-size: 30px;
+ color: white;
+ font-style: italic;
+ margin-bottom: 100px;
+ margin-top: 200px;
+}
+.sub{
+  display: block;
+  color: #ffffff;
+  font-style: italic;
+}
+.sub:hover{
+  color: #a5650b;
+  font-size: 45px;
+}
+body{
+  background-color: rgb(15, 14, 11);
+}
+.god{
+  background-color: rgb(49, 36, 2);
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  border: 1px solid rgb(85, 61, 4);
+  color: #ffffff;
+  margin-top: 40px;
+}
+.god :hover{
+  color: wheat;
+  font-size: 35px;
+  font-style: italic;
+}

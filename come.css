@@ -1,0 +1,18 @@
+.sacramento{
+    font-family: sacramento;
+    background-color: brown;
+    width: 80%;
+}
+.merriweather{
+    font-family: merriweather ;
+    background-color: aqua;
+    width: 70%;
+}
+.live-demo{
+    font-family: live-demo;
+    background-color: blueviolet;
+    text-size-adjust: bold;
+}
+.serif{
+    font-family: serif;
+}

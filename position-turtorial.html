@@ -1,0 +1,2860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =========================================================
+         CSS POSITION TUTORIAL
+         =========================================================
+
+         EVERYTHING IS INSIDE THIS ONE HTML FILE.
+
+         LESSON STRUCTURE:
+
+         1. Introduction
+         2. position: static
+         3. position: relative
+         4. position: absolute
+         5. position: fixed
+         6. position: sticky
+         7. top
+         8. right
+         9. bottom
+         10. left
+         11. z-index
+         12. Relative + Absolute relationship
+         13. Position comparison
+
+         THEN:
+
+         14. COMPLETE NAVBAR PROJECT
+
+         IMPORTANT:
+
+         The tutorial examples use classes such as:
+
+             .static-example
+             .relative-example
+             .absolute-example
+
+         The final project uses completely different classes:
+
+             .project-navbar
+             .project-dropdown
+             .project-notification
+
+         This prevents students from confusing the lesson
+         examples with the final project.
+    ========================================================= -->
+
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        CSS Position Tutorial
+    </title>
+
+
+    <style>
+
+        /* =====================================================
+           GENERAL PAGE STYLING
+           ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f5f7fb;
+
+            color: #172033;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           TUTORIAL HEADER
+           ===================================================== */
+
+        .tutorial-header {
+
+            padding: 80px 20px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #101828,
+                    #1d2939
+                );
+
+            color: white;
+        }
+
+
+        .tutorial-header h1 {
+
+            margin: 0;
+
+            font-size: clamp(40px, 7vw, 70px);
+        }
+
+
+        .tutorial-header p {
+
+            max-width: 750px;
+
+            margin: 20px auto 0;
+
+            color: #d0d5dd;
+
+            font-size: 18px;
+        }
+
+
+        /* =====================================================
+           GENERAL LESSON SECTION
+           ===================================================== */
+
+        .lesson {
+
+            padding: 80px 8%;
+
+            background: white;
+
+            border-bottom:
+                1px solid #e4e7ec;
+        }
+
+
+        .lesson:nth-child(even) {
+
+            background: #f8fafc;
+        }
+
+
+        .lesson h2 {
+
+            margin-top: 0;
+
+            font-size: 38px;
+
+            color: #101828;
+        }
+
+
+        .lesson h3 {
+
+            margin-top: 35px;
+
+            color: #2463eb;
+        }
+
+
+        .lesson p {
+
+            max-width: 850px;
+
+            font-size: 17px;
+        }
+
+
+        /* =====================================================
+           CODE DISPLAY
+           ===================================================== */
+
+        pre {
+
+            max-width: 900px;
+
+            overflow-x: auto;
+
+            padding: 20px;
+
+            background: #101828;
+
+            color: #e5e7eb;
+
+            border-radius: 10px;
+
+            line-height: 1.6;
+        }
+
+
+        code {
+
+            padding: 3px 6px;
+
+            border-radius: 4px;
+
+            background: #eef2f6;
+
+            color: #be185d;
+
+            font-family: Consolas, monospace;
+        }
+
+
+        /* =====================================================
+           EXAMPLE CONTAINER
+
+           Every lesson example gets its own visible area.
+           ===================================================== */
+
+        .example-area {
+
+            position: relative;
+
+            min-height: 250px;
+
+            margin: 30px 0;
+
+            padding: 30px;
+
+            border:
+                2px dashed #98a2b3;
+
+            background: #f8fafc;
+
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           =====================================================
+           1. STATIC EXAMPLE
+           =====================================================
+           ===================================================== */
+
+        /*
+            STATIC EXAMPLE
+
+            HTML:
+
+                <div class="static-example">
+                    Static
+                </div>
+
+            CSS:
+
+                .static-example {
+                    position: static;
+                }
+
+            static is the default position.
+
+            The element stays in normal document flow.
+        */
+
+
+        .static-example {
+
+            position: static;
+
+            width: 150px;
+
+            height: 80px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #2463eb;
+
+            color: white;
+
+            font-weight: bold;
+
+            border-radius: 8px;
+        }
+
+
+        /* =====================================================
+           2. RELATIVE EXAMPLE
+           ===================================================== */
+
+        /*
+            RELATIVE EXAMPLE
+
+            HTML:
+
+                <div class="relative-example">
+                    Relative
+                </div>
+
+            CSS:
+
+                .relative-example {
+                    position: relative;
+
+                    top: 30px;
+                    left: 40px;
+                }
+
+            The element remains in normal document flow.
+
+            However, we can visually move it using:
+
+                top
+                right
+                bottom
+                left
+        */
+
+
+        .relative-example {
+
+            position: relative;
+
+            top: 30px;
+
+            left: 40px;
+
+            width: 150px;
+
+            height: 80px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #7c3aed;
+
+            color: white;
+
+            font-weight: bold;
+
+            border-radius: 8px;
+        }
+
+
+        /* =====================================================
+           3. ABSOLUTE EXAMPLE
+           ===================================================== */
+
+        /*
+            ABSOLUTE EXAMPLE
+
+            HTML:
+
+                <div class="absolute-example">
+                    Absolute
+                </div>
+
+            CSS:
+
+                .absolute-example {
+                    position: absolute;
+
+                    top: 20px;
+                    right: 20px;
+                }
+
+            IMPORTANT:
+
+            The example container itself is relative.
+
+            Therefore the absolute element is positioned
+            relative to that container.
+        */
+
+
+        .absolute-example-area {
+
+            position: relative;
+
+            min-height: 250px;
+
+            padding: 30px;
+
+            border:
+                2px dashed #98a2b3;
+
+            background: #f8fafc;
+        }
+
+
+        .absolute-example {
+
+            position: absolute;
+
+            top: 20px;
+
+            right: 20px;
+
+            width: 150px;
+
+            height: 80px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #ef4444;
+
+            color: white;
+
+            font-weight: bold;
+
+            border-radius: 8px;
+        }
+
+
+        /* =====================================================
+           4. FIXED EXAMPLE
+           ===================================================== */
+
+        /*
+            FIXED EXAMPLE
+
+            HTML:
+
+                <div class="fixed-example">
+                    Fixed
+                </div>
+
+            CSS:
+
+                .fixed-example {
+                    position: fixed;
+
+                    bottom: 25px;
+                    right: 25px;
+                }
+
+            The element is attached to the browser viewport.
+
+            It will remain visible while the page scrolls.
+
+            We place this example at the bottom-right so that
+            it does not interfere with the tutorial.
+        */
+
+
+        .fixed-example {
+
+            position: fixed;
+
+            bottom: 25px;
+
+            right: 25px;
+
+            width: 120px;
+
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #dc2626;
+
+            color: white;
+
+            font-weight: bold;
+
+            border-radius: 8px;
+
+            z-index: 500;
+        }
+
+
+        /* =====================================================
+           5. STICKY EXAMPLE
+           ===================================================== */
+
+        /*
+            STICKY EXAMPLE
+
+            HTML:
+
+                <div class="sticky-example">
+                    Sticky
+                </div>
+
+            CSS:
+
+                .sticky-example {
+                    position: sticky;
+
+                    top: 20px;
+                }
+
+            The element behaves normally until it reaches
+            the specified top position while scrolling.
+        */
+
+
+        .sticky-example {
+
+            position: sticky;
+
+            top: 20px;
+
+            padding: 20px;
+
+            background: #f59e0b;
+
+            color: #111827;
+
+            font-weight: bold;
+
+            text-align: center;
+
+            border-radius: 8px;
+
+            z-index: 20;
+        }
+
+
+        /* =====================================================
+           6. TOP EXAMPLE
+           ===================================================== */
+
+        /*
+            TOP
+
+            top controls the distance from the top edge.
+
+            Example:
+
+                top: 30px;
+        */
+
+
+        .top-example {
+
+            position: relative;
+
+            top: 30px;
+
+            width: 150px;
+
+            height: 70px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #0891b2;
+
+            color: white;
+
+            font-weight: bold;
+
+            border-radius: 8px;
+        }
+
+
+        /* =====================================================
+           7. RIGHT EXAMPLE
+           ===================================================== */
+
+        /*
+            RIGHT
+
+            right controls the distance from the right side.
+
+            Example:
+
+                right: 30px;
+        */
+
+
+        .right-example {
+
+            position: relative;
+
+            right: 30px;
+
+            width: 150px;
+
+            height: 70px;
+
+            margin-left: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #059669;
+
+            color: white;
+
+            font-weight: bold;
+
+            border-radius: 8px;
+        }
+
+
+        /* =====================================================
+           8. BOTTOM EXAMPLE
+           ===================================================== */
+
+        /*
+            BOTTOM
+
+            bottom controls the distance from the bottom.
+
+            This becomes easier to observe when the element
+            is positioned inside a relative parent.
+        */
+
+
+        .bottom-example-area {
+
+            position: relative;
+
+            height: 250px;
+
+            border:
+                2px dashed #98a2b3;
+
+            background: #f8fafc;
+        }
+
+
+        .bottom-example {
+
+            position: absolute;
+
+            bottom: 20px;
+
+            left: 30px;
+
+            width: 150px;
+
+            height: 70px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #db2777;
+
+            color: white;
+
+            font-weight: bold;
+
+            border-radius: 8px;
+        }
+
+
+        /* =====================================================
+           9. LEFT EXAMPLE
+           ===================================================== */
+
+        /*
+            LEFT
+
+            left controls the distance from the left edge.
+        */
+
+
+        .left-example {
+
+            position: relative;
+
+            left: 50px;
+
+            width: 150px;
+
+            height: 70px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #9333ea;
+
+            color: white;
+
+            font-weight: bold;
+
+            border-radius: 8px;
+        }
+
+
+        /* =====================================================
+           10. Z-INDEX EXAMPLE
+           ===================================================== */
+
+        /*
+            z-index controls stacking order.
+
+            The element with the higher z-index can appear
+            above an element with a lower z-index.
+        */
+
+
+        .z-index-area {
+
+            position: relative;
+
+            height: 250px;
+
+            border:
+                2px dashed #98a2b3;
+        }
+
+
+        .z-box-one {
+
+            position: absolute;
+
+            top: 40px;
+
+            left: 100px;
+
+            width: 180px;
+
+            height: 120px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #2563eb;
+
+            color: white;
+
+            z-index: 1;
+
+            border-radius: 10px;
+        }
+
+
+        .z-box-two {
+
+            position: absolute;
+
+            top: 80px;
+
+            left: 180px;
+
+            width: 180px;
+
+            height: 120px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #ef4444;
+
+            color: white;
+
+            z-index: 2;
+
+            border-radius: 10px;
+        }
+
+
+        /* =====================================================
+           11. RELATIVE + ABSOLUTE DEMONSTRATION
+           ===================================================== */
+
+        .relationship-parent {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 250px;
+
+            padding: 25px;
+
+            border: 3px solid #2463eb;
+
+            background: #eff6ff;
+
+            border-radius: 10px;
+        }
+
+
+        .relationship-child {
+
+            position: absolute;
+
+            top: 20px;
+
+            right: 20px;
+
+            width: 160px;
+
+            height: 70px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #ef4444;
+
+            color: white;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           =====================================================
+           FINAL PROJECT
+           =====================================================
+           =====================================================
+
+           IMPORTANT:
+
+           Everything below this point belongs to the
+           FINAL NAVBAR PROJECT.
+
+           The classes are completely different from the
+           tutorial examples.
+
+           This allows students to distinguish:
+
+               LESSON EXAMPLES
+
+           from:
+
+               REAL PROJECT
+        */
+
+
+        .project-section {
+
+            padding: 100px 6%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111827,
+                    #1e293b
+                );
+
+            color: white;
+        }
+
+
+        .project-section h2 {
+
+            margin-top: 0;
+
+            font-size: 48px;
+        }
+
+
+        .project-description {
+
+            max-width: 800px;
+
+            font-size: 18px;
+
+            color: #cbd5e1;
+        }
+
+
+        /* =====================================================
+           FINAL PROJECT NAVBAR
+           ===================================================== */
+
+        /*
+            This is a DIFFERENT class from the tutorial examples.
+
+            The navbar itself uses:
+
+                position: sticky;
+
+            This demonstrates another real-world use of
+            positioning.
+
+            You can change this to fixed and compare the
+            behaviour.
+        */
+
+
+        .project-navbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 18px 25px;
+
+            background: #020617;
+
+            border:
+                1px solid #334155;
+
+            border-radius: 12px;
+
+            margin-top: 40px;
+        }
+
+
+        /* =====================================================
+           PROJECT LOGO
+           ===================================================== */
+
+        .project-logo {
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            color: white;
+        }
+
+
+        /* =====================================================
+           PROJECT NAVIGATION
+           ===================================================== */
+
+        .project-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 25px;
+        }
+
+
+        .project-links > a,
+        .project-dropdown-link {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 15px;
+        }
+
+
+        .project-links > a:hover,
+        .project-dropdown-link:hover {
+
+            color: #60a5fa;
+        }
+
+
+        /* =====================================================
+           PROJECT DROPDOWN PARENT
+           ===================================================== */
+
+        /*
+            Relative creates the positioning reference
+            for the absolute dropdown menu.
+        */
+
+
+        .project-dropdown {
+
+            position: relative;
+        }
+
+
+        /* =====================================================
+           PROJECT DROPDOWN MENU
+           ===================================================== */
+
+        .project-dropdown-menu {
+
+            position: absolute;
+
+            top: 100%;
+
+            left: 0;
+
+            margin-top: 12px;
+
+            min-width: 180px;
+
+            padding: 10px;
+
+            background: white;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.25);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform: translateY(-10px);
+
+            transition:
+                0.2s ease;
+        }
+
+
+        .project-dropdown-menu a {
+
+            display: block;
+
+            padding: 10px;
+
+            color: #111827;
+
+            text-decoration: none;
+
+            border-radius: 5px;
+        }
+
+
+        .project-dropdown-menu a:hover {
+
+            background: #eff6ff;
+
+            color: #2563eb;
+        }
+
+
+        .project-dropdown:hover
+        .project-dropdown-menu {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           PROJECT ACTIONS
+           ===================================================== */
+
+        .project-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+
+        /* =====================================================
+           PROJECT NOTIFICATION
+           ===================================================== */
+
+        /*
+            Relative parent.
+
+            The notification number will be positioned
+            absolutely relative to this button.
+        */
+
+
+        .project-notification {
+
+            position: relative;
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: none;
+
+            background: #1e293b;
+
+            color: white;
+
+            border-radius: 8px;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           PROJECT NOTIFICATION BADGE
+           ===================================================== */
+
+        /*
+            Absolute child.
+
+            It floats above the notification button.
+        */
+
+
+        .project-notification-badge {
+
+            position: absolute;
+
+            top: -7px;
+
+            right: -7px;
+
+            width: 20px;
+
+            height: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #ef4444;
+
+            color: white;
+
+            border-radius: 50%;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            border: 2px solid #020617;
+        }
+
+
+        /* =====================================================
+           PROJECT PROFILE
+           ===================================================== */
+
+        .project-profile {
+
+            position: relative;
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #334155;
+
+            border-radius: 50%;
+
+            font-size: 20px;
+        }
+
+
+        /* =====================================================
+           PROJECT ONLINE STATUS
+           ===================================================== */
+
+        .project-online-status {
+
+            position: absolute;
+
+            right: 0;
+
+            bottom: 0;
+
+            width: 11px;
+
+            height: 11px;
+
+            background: #22c55e;
+
+            border: 2px solid #020617;
+
+            border-radius: 50%;
+        }
+
+
+        /* =====================================================
+           PROJECT CONTENT
+           ===================================================== */
+
+        .project-content {
+
+            min-height: 900px;
+
+            padding: 70px 20px;
+
+            text-align: center;
+        }
+
+
+        .project-content h3 {
+
+            font-size: 35px;
+        }
+
+
+        .project-content p {
+
+            max-width: 700px;
+
+            margin: 20px auto;
+
+            color: #cbd5e1;
+
+            font-size: 18px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE PROJECT NAVBAR
+           ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .project-links {
+
+                gap: 12px;
+            }
+
+            .project-links > a,
+            .project-dropdown-link {
+
+                font-size: 13px;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .project-links {
+
+                display: none;
+            }
+
+            .project-navbar {
+
+                justify-content: space-between;
+            }
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        .footer {
+
+            padding: 50px 20px;
+
+            text-align: center;
+
+            background: #020617;
+
+            color: #94a3b8;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         TUTORIAL HEADER
+         ========================================================= -->
+
+    <header class="tutorial-header">
+
+        <h1>
+            CSS Position
+        </h1>
+
+        <p>
+            A complete practical tutorial covering
+            static, relative, absolute, fixed, sticky,
+            offsets, z-index, and a real navbar project.
+        </p>
+
+    </header>
+
+
+    <!-- =========================================================
+         INTRODUCTION
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            What Is CSS Position?
+        </h2>
+
+        <p>
+
+            The CSS <code>position</code> property determines
+            how an element is positioned within a webpage.
+
+        </p>
+
+        <p>
+            The five major values are:
+        </p>
+
+        <ul>
+
+            <li>
+                <code>static</code>
+            </li>
+
+            <li>
+                <code>relative</code>
+            </li>
+
+            <li>
+                <code>absolute</code>
+            </li>
+
+            <li>
+                <code>fixed</code>
+            </li>
+
+            <li>
+                <code>sticky</code>
+            </li>
+
+        </ul>
+
+        <p>
+
+            A very important question to ask when learning
+            positioning is:
+
+        </p>
+
+        <h3>
+            "Positioned relative to what?"
+        </h3>
+
+    </section>
+
+
+    <!-- =========================================================
+         1. STATIC
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            1. position: static
+        </h2>
+
+
+        <p>
+
+            <code>static</code> is the default positioning
+            value for HTML elements.
+
+        </p>
+
+
+        <!-- =====================================================
+             HTML EXAMPLE
+
+             This is the actual HTML being demonstrated.
+             ===================================================== -->
+
+        <h3>
+            HTML Example
+        </h3>
+
+        <pre>
+&lt;div class="static-example"&gt;
+    Static
+&lt;/div&gt;
+        </pre>
+
+
+        <!-- =====================================================
+             ACTUAL EXAMPLE
+             ===================================================== -->
+
+        <div class="example-area">
+
+            <div class="static-example">
+                Static
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             CSS APPLIED TO THE EXAMPLE
+             ===================================================== -->
+
+        <h3>
+            CSS Applied
+        </h3>
+
+        <pre>
+.static-example {
+
+    position: static;
+
+    width: 150px;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+        </pre>
+
+
+        <p>
+
+            The element remains in the normal document flow.
+
+        </p>
+
+
+        <p>
+
+            <strong>
+                Important:
+            </strong>
+
+            <code>static</code> is the default value.
+
+        </p>
+
+    </section>
+
+
+    <!-- =========================================================
+         2. RELATIVE
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            2. position: relative
+        </h2>
+
+
+        <p>
+
+            Relative positioning keeps the element in the
+            normal document flow but allows you to visually
+            offset it.
+
+        </p>
+
+
+        <h3>
+            HTML Example
+        </h3>
+
+        <pre>
+&lt;div class="relative-example"&gt;
+    Relative
+&lt;/div&gt;
+        </pre>
+
+
+        <div class="example-area">
+
+            <div class="relative-example">
+                Relative
+            </div>
+
+        </div>
+
+
+        <h3>
+            CSS Applied
+        </h3>
+
+        <pre>
+.relative-example {
+
+    position: relative;
+
+    top: 30px;
+
+    left: 40px;
+}
+        </pre>
+
+
+        <p>
+
+            <code>top: 30px</code> moves the element
+            30 pixels downward.
+
+        </p>
+
+
+        <p>
+
+            <code>left: 40px</code> moves the element
+            40 pixels to the right.
+
+        </p>
+
+
+        <h3>
+            Very Important Use of Relative
+        </h3>
+
+
+        <p>
+
+            Relative positioning is frequently used to
+            create a positioning reference for an
+            absolutely positioned child.
+
+        </p>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         3. ABSOLUTE
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            3. position: absolute
+        </h2>
+
+
+        <p>
+
+            Absolute positioning removes the element from
+            normal document flow.
+
+        </p>
+
+
+        <h3>
+            HTML Example
+        </h3>
+
+        <pre>
+&lt;div class="absolute-example-area"&gt;
+
+    &lt;div class="absolute-example"&gt;
+        Absolute
+    &lt;/div&gt;
+
+&lt;/div&gt;
+        </pre>
+
+
+        <div class="absolute-example-area">
+
+            <div class="absolute-example">
+                Absolute
+            </div>
+
+        </div>
+
+
+        <h3>
+            CSS Applied to Parent
+        </h3>
+
+        <pre>
+.absolute-example-area {
+
+    position: relative;
+
+    min-height: 250px;
+}
+        </pre>
+
+
+        <h3>
+            CSS Applied to Child
+        </h3>
+
+        <pre>
+.absolute-example {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+}
+        </pre>
+
+
+        <p>
+
+            Because the parent has
+            <code>position: relative</code>,
+            the absolute child is positioned relative
+            to that parent.
+
+        </p>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         4. FIXED
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            4. position: fixed
+        </h2>
+
+
+        <p>
+
+            Fixed positioning attaches an element to the
+            browser viewport.
+
+        </p>
+
+
+        <h3>
+            HTML Example
+        </h3>
+
+        <pre>
+&lt;div class="fixed-example"&gt;
+    Fixed
+&lt;/div&gt;
+        </pre>
+
+
+        <p>
+
+            Look at the bottom-right corner of your browser.
+
+            You should see the actual example:
+
+        </p>
+
+
+        <div class="fixed-example">
+
+            Fixed
+
+        </div>
+
+
+        <h3>
+            CSS Applied
+        </h3>
+
+        <pre>
+.fixed-example {
+
+    position: fixed;
+
+    bottom: 25px;
+
+    right: 25px;
+}
+        </pre>
+
+
+        <p>
+
+            Scroll the page.
+
+        </p>
+
+
+        <p>
+
+            The element remains attached to the browser
+            viewport.
+
+        </p>
+
+
+        <p>
+
+            This is why fixed positioning is frequently
+            used for floating buttons, navigation bars,
+            chat buttons, and similar interface elements.
+
+        </p>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         5. STICKY
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            5. position: sticky
+        </h2>
+
+
+        <p>
+
+            Sticky positioning allows an element to behave
+            normally until a specified scrolling threshold
+            is reached.
+
+        </p>
+
+
+        <h3>
+            HTML Example
+        </h3>
+
+        <pre>
+&lt;div class="sticky-example"&gt;
+    Sticky
+&lt;/div&gt;
+        </pre>
+
+
+        <div class="sticky-example">
+
+            Sticky Element
+
+        </div>
+
+
+        <h3>
+            CSS Applied
+        </h3>
+
+        <pre>
+.sticky-example {
+
+    position: sticky;
+
+    top: 20px;
+}
+        </pre>
+
+
+        <p>
+
+            Continue scrolling to observe its behaviour.
+
+        </p>
+
+
+        <div style="height: 500px;"></div>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         6. TOP
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            6. The top Property
+        </h2>
+
+
+        <p>
+
+            The <code>top</code> property controls the
+            distance from the top edge.
+
+        </p>
+
+
+        <h3>
+            HTML Example
+        </h3>
+
+        <pre>
+&lt;div class="top-example"&gt;
+    Top
+&lt;/div&gt;
+        </pre>
+
+
+        <div class="example-area">
+
+            <div class="top-example">
+
+                top: 30px
+
+            </div>
+
+        </div>
+
+
+        <h3>
+            CSS Applied
+        </h3>
+
+        <pre>
+.top-example {
+
+    position: relative;
+
+    top: 30px;
+}
+        </pre>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         7. RIGHT
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            7. The right Property
+        </h2>
+
+
+        <p>
+
+            The <code>right</code> property controls
+            the distance from the right side.
+
+        </p>
+
+
+        <h3>
+            HTML Example
+        </h3>
+
+        <pre>
+&lt;div class="right-example"&gt;
+    Right
+&lt;/div&gt;
+        </pre>
+
+
+        <div class="example-area">
+
+            <div class="right-example">
+
+                right: 30px
+
+            </div>
+
+        </div>
+
+
+        <h3>
+            CSS Applied
+        </h3>
+
+        <pre>
+.right-example {
+
+    position: relative;
+
+    right: 30px;
+}
+        </pre>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         8. BOTTOM
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            8. The bottom Property
+        </h2>
+
+
+        <p>
+
+            The <code>bottom</code> property controls
+            the distance from the bottom edge.
+
+        </p>
+
+
+        <h3>
+            HTML Example
+        </h3>
+
+        <pre>
+&lt;div class="bottom-example-area"&gt;
+
+    &lt;div class="bottom-example"&gt;
+        Bottom
+    &lt;/div&gt;
+
+&lt;/div&gt;
+        </pre>
+
+
+        <div class="bottom-example-area">
+
+            <div class="bottom-example">
+
+                bottom: 20px
+
+            </div>
+
+        </div>
+
+
+        <h3>
+            CSS Applied
+        </h3>
+
+        <pre>
+.bottom-example-area {
+
+    position: relative;
+}
+
+.bottom-example {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 30px;
+}
+        </pre>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         9. LEFT
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            9. The left Property
+        </h2>
+
+
+        <p>
+
+            The <code>left</code> property controls
+            the distance from the left edge.
+
+        </p>
+
+
+        <h3>
+            HTML Example
+        </h3>
+
+        <pre>
+&lt;div class="left-example"&gt;
+    Left
+&lt;/div&gt;
+        </pre>
+
+
+        <div class="example-area">
+
+            <div class="left-example">
+
+                left: 50px
+
+            </div>
+
+        </div>
+
+
+        <h3>
+            CSS Applied
+        </h3>
+
+        <pre>
+.left-example {
+
+    position: relative;
+
+    left: 50px;
+}
+        </pre>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         10. Z-INDEX
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            10. z-index
+        </h2>
+
+
+        <p>
+
+            <code>z-index</code> controls the stacking order
+            of positioned elements when they overlap.
+
+        </p>
+
+
+        <h3>
+            HTML Example
+        </h3>
+
+        <pre>
+&lt;div class="z-index-area"&gt;
+
+    &lt;div class="z-box-one"&gt;
+        z-index: 1
+    &lt;/div&gt;
+
+    &lt;div class="z-box-two"&gt;
+        z-index: 2
+    &lt;/div&gt;
+
+&lt;/div&gt;
+        </pre>
+
+
+        <div class="z-index-area">
+
+            <div class="z-box-one">
+
+                z-index: 1
+
+            </div>
+
+
+            <div class="z-box-two">
+
+                z-index: 2
+
+            </div>
+
+        </div>
+
+
+        <h3>
+            CSS Applied to First Element
+        </h3>
+
+        <pre>
+.z-box-one {
+
+    position: absolute;
+
+    z-index: 1;
+}
+        </pre>
+
+
+        <h3>
+            CSS Applied to Second Element
+        </h3>
+
+        <pre>
+.z-box-two {
+
+    position: absolute;
+
+    z-index: 2;
+}
+        </pre>
+
+
+        <p>
+
+            Since 2 is greater than 1, the second box
+            appears above the first box.
+
+        </p>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         11. RELATIVE + ABSOLUTE
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            11. Relative Parent + Absolute Child
+        </h2>
+
+
+        <p>
+
+            This is one of the most important patterns
+            in CSS positioning.
+
+        </p>
+
+
+        <h3>
+            HTML
+        </h3>
+
+        <pre>
+&lt;div class="relationship-parent"&gt;
+
+    &lt;div class="relationship-child"&gt;
+        Absolute Child
+    &lt;/div&gt;
+
+&lt;/div&gt;
+        </pre>
+
+
+        <div class="relationship-parent">
+
+            Parent:
+
+            <strong>
+                position: relative
+            </strong>
+
+
+            <div class="relationship-child">
+
+                Absolute Child
+
+            </div>
+
+        </div>
+
+
+        <h3>
+            Parent CSS
+        </h3>
+
+        <pre>
+.relationship-parent {
+
+    position: relative;
+}
+        </pre>
+
+
+        <h3>
+            Child CSS
+        </h3>
+
+        <pre>
+.relationship-child {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+}
+        </pre>
+
+
+        <p>
+
+            The child is positioned relative to the parent.
+
+        </p>
+
+
+        <p>
+
+            You will see this pattern in dropdown menus,
+            notification badges, profile indicators,
+            cards, image overlays, and many other interfaces.
+
+        </p>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         12. COMPARISON
+         ========================================================= -->
+
+    <section class="lesson">
+
+        <h2>
+            Position Values Compared
+        </h2>
+
+
+        <table
+            style="
+                width:100%;
+                max-width:1000px;
+                border-collapse:collapse;
+                background:white;
+            "
+        >
+
+            <tr>
+
+                <th
+                    style="
+                        padding:15px;
+                        background:#101828;
+                        color:white;
+                    "
+                >
+                    Position
+                </th>
+
+                <th
+                    style="
+                        padding:15px;
+                        background:#101828;
+                        color:white;
+                    "
+                >
+                    Normal Flow?
+                </th>
+
+                <th
+                    style="
+                        padding:15px;
+                        background:#101828;
+                        color:white;
+                    "
+                >
+                    Typical Use
+                </th>
+
+            </tr>
+
+
+            <tr>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    static
+                </td>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    Yes
+                </td>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    Normal elements
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    relative
+                </td>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    Yes
+                </td>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    Reference point / small offsets
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    absolute
+                </td>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    No
+                </td>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    Dropdowns / badges / overlays
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    fixed
+                </td>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    No
+                </td>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    Floating or viewport-attached UI
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    sticky
+                </td>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    Yes
+                </td>
+
+                <td style="padding:15px;border:1px solid #ddd;">
+                    Sticky navigation
+                </td>
+
+            </tr>
+
+        </table>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         =========================================================
+         FINAL PROJECT STARTS HERE
+         =========================================================
+         =========================================================
+
+         Everything above was tutorial material.
+
+         Everything below is the actual project.
+
+         Notice that the class names are completely different.
+
+         TUTORIAL:
+
+             .static-example
+             .relative-example
+             .absolute-example
+
+         PROJECT:
+
+             .project-navbar
+             .project-dropdown
+             .project-notification
+             .project-profile
+
+         This separation makes it easier for students to
+         understand that they are now building a real project.
+    ========================================================= -->
+
+
+    <section class="project-section">
+
+
+        <h2>
+            Final Project: Professional Navbar
+        </h2>
+
+
+        <p class="project-description">
+
+            Now that we understand each CSS positioning
+            technique individually, we can combine them
+            to build a real navigation bar.
+
+        </p>
+
+
+        <!-- =====================================================
+             PROJECT NAVBAR HTML
+             ===================================================== -->
+
+        <nav class="project-navbar">
+
+
+            <!-- =================================================
+                 PROJECT LOGO
+                 ================================================= -->
+
+            <div class="project-logo">
+
+                PatternCode
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJECT NAVIGATION
+                 ================================================= -->
+
+            <div class="project-links">
+
+
+                <a href="#">
+                    Home
+                </a>
+
+
+                <!-- =============================================
+                     PROJECT DROPDOWN
+
+                     Parent:
+                         position: relative
+
+                     Child:
+                         position: absolute
+                     ============================================= -->
+
+                <div class="project-dropdown">
+
+
+                    <a
+                        href="#"
+                        class="project-dropdown-link"
+                    >
+                        Courses ▾
+                    </a>
+
+
+                    <div class="project-dropdown-menu">
+
+
+                        <a href="#">
+                            HTML
+                        </a>
+
+
+                        <a href="#">
+                            CSS
+                        </a>
+
+
+                        <a href="#">
+                            JavaScript
+                        </a>
+
+
+                        <a href="#">
+                            Python
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <a href="#">
+                    About
+                </a>
+
+
+                <a href="#">
+                    Contact
+                </a>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJECT ACTIONS
+                 ================================================= -->
+
+            <div class="project-actions">
+
+
+                <!-- =============================================
+                     NOTIFICATION
+                     ============================================= -->
+
+                <button class="project-notification">
+
+
+                    🔔
+
+
+                    <span
+                        class="project-notification-badge"
+                    >
+                        5
+                    </span>
+
+
+                </button>
+
+
+                <!-- =============================================
+                     PROFILE
+                     ============================================= -->
+
+                <div class="project-profile">
+
+
+                    👤
+
+
+                    <span
+                        class="project-online-status"
+                    ></span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </nav>
+
+
+        <!-- =====================================================
+             PROJECT CONTENT
+             ===================================================== -->
+
+        <div class="project-content">
+
+
+            <h3>
+                Scroll This Project
+            </h3>
+
+
+            <p>
+
+                The navbar above uses
+                <strong>
+                    position: sticky
+                </strong>
+                so that you can observe how a real navigation
+                interface can remain available while scrolling.
+
+            </p>
+
+
+            <p>
+
+                The Courses dropdown uses
+                <strong>
+                    relative + absolute
+                </strong>
+                positioning.
+
+            </p>
+
+
+            <p>
+
+                The notification badge uses
+                <strong>
+                    relative + absolute
+                </strong>
+                positioning.
+
+            </p>
+
+
+            <p>
+
+                The profile's green online indicator also uses
+                <strong>
+                    relative + absolute
+                </strong>
+                positioning.
+
+            </p>
+
+
+            <div style="height:500px;"></div>
+
+
+            <h3>
+                End of Project
+            </h3>
+
+
+            <p>
+
+                You have now used the major CSS positioning
+                techniques in one practical interface.
+
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         STUDENT ASSIGNMENT
+         ========================================================= -->
+
+    <section class="lesson">
+
+
+        <h2>
+            Student Assignment
+        </h2>
+
+
+        <p>
+
+            Rebuild the final navbar from scratch.
+
+        </p>
+
+
+        <h3>
+            Requirements
+        </h3>
+
+
+        <ol>
+
+
+            <li>
+                Create a navigation bar.
+            </li>
+
+
+            <li>
+                Add a logo.
+            </li>
+
+
+            <li>
+                Add Home, Courses, About, and Contact.
+            </li>
+
+
+            <li>
+                Make Courses contain a dropdown.
+            </li>
+
+
+            <li>
+                Use <code>position: relative</code>
+                on the dropdown container.
+            </li>
+
+
+            <li>
+                Use <code>position: absolute</code>
+                on the dropdown menu.
+            </li>
+
+
+            <li>
+                Add a notification icon.
+            </li>
+
+
+            <li>
+                Add a notification badge.
+            </li>
+
+
+            <li>
+                Use relative positioning on the notification.
+            </li>
+
+
+            <li>
+                Use absolute positioning on the badge.
+            </li>
+
+
+            <li>
+                Add a profile icon.
+            </li>
+
+
+            <li>
+                Add an online status indicator.
+            </li>
+
+
+            <li>
+                Use <code>z-index</code>.
+            </li>
+
+
+            <li>
+                Make the navbar sticky.
+            </li>
+
+
+        </ol>
+
+
+        <h3>
+            Questions
+        </h3>
+
+
+        <ol>
+
+
+            <li>
+                What is the default value of
+                <code>position</code>?
+            </li>
+
+
+            <li>
+                What is the difference between
+                <code>relative</code> and
+                <code>absolute</code>?
+            </li>
+
+
+            <li>
+                Why is <code>relative</code> commonly placed
+                on the parent of an absolute element?
+            </li>
+
+
+            <li>
+                What happens to an absolute element's normal
+                document flow?
+            </li>
+
+
+            <li>
+                What is the difference between
+                <code>fixed</code> and
+                <code>sticky</code>?
+            </li>
+
+
+            <li>
+                What does <code>top: 0</code> mean?
+            </li>
+
+
+            <li>
+                What does <code>right: 0</code> mean?
+            </li>
+
+
+            <li>
+                Why are negative positioning values useful?
+            </li>
+
+
+            <li>
+                What does <code>z-index</code> do?
+            </li>
+
+
+            <li>
+                Why shouldn't you use absolute positioning
+                for every element?
+            </li>
+
+
+        </ol>
+
+
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="footer">
+
+        <p>
+
+            CSS Position Tutorial &mdash;
+            PatternCode Technologies
+
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+.container {
+  background-color: black;
+  color: white;
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  padding: 10px;
+  /* justify-content: space-evenly; */
+  align-items: flex-end;
+}
+.flex-1 {
+  flex: 2;
+  order: 1;
+  background-color: red;
+}
+.flex-2 {
+  flex: 1;
+  order: 2;
+  background-color: blue;
+}
+.flex-3 {
+  flex: 1;
+  background-color: gray;
+}
+.flex-4 {
+  flex: 1;
+  background-color: yellow;
+}
+.flex-container {
+  background-color: aqua;
+  display: flex;
+  gap: 30px;
+}
+.first {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+}
+.second {
+  background-color: green;
+  width: 50px;
+  height: 50px;
+}
+.third {
+  background-color: orange;
+  width: 50px;
+  height: 50px;
+}
+.fourth {
+  background-color: gray;
+  width: 50px;
+  height: 50px;
+}
+.fifth {
+  background-color: pink;
+  width: 50px;
+  height: 50px;
+}
+.sixth {
+  background-color: blue;
+  width: 50px;
+  height: 50px;
+}
+.seventh {
+  background-color: blue;
+  width: 50px;
+  height: 50px;
+}
+.seventh {
+  background-color: rosybrown;
+  width: 50px;
+  height: 50px;
+}
+.eight {
+  background-color: rgba(66, 186, 64, 0.452);
+  width: 50px;
+  height: 50px;
+}
+.nineth {
+  background-color: yellowgreen;
+  width: 50px;
+  height: 50px;
+}
+.tenth {
+  background-color: aqua;
+  width: 50px;
+  height: 50px;
+}
+/* flex direction */
+.flex-direction {
+  display: flex;
+  /* flex-direction: row; */
+  /* flex-direction: row-reverse; */
+  flex-direction: column;
+}
+/* flex-wrap */
+.flex-wrap {
+  display: flex;
+  /* flex-wrap: nowrap; */
+  flex-wrap: wrap;
+}
+.navbar {
+  background: black;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+}
+.logo {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+.logo:hover {
+  color: wheat;
+  cursor: pointer;
+}
+.nav-items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+.nav-link:hover {
+  color: wheat;
+  font-size: 1.1rem;
+}
+.sign-in {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.sign-in:hover {
+  background-color: #1bd03f7c;
+  cursor: pointer;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+
+}
+.card-item {
+  background-color: white;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  flex: 1;
+  min-width: 200px;
+  max-width: 250px;
+  padding: 10px;
+  border-radius: 15px;
+}
+.empty-card {
+  background-color: wheat;
+  height: 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+    box-shadow: 10px 10px 10px;
+
+}
+.card-item h3 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.card-item p {
+  text-align: center;
+}
+.card-item button {
+  text-align: center;
+  background-color: wheat;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 10px 10px 10px;
+}
+button:hover {
+  background-color: whitesmoke;
+}

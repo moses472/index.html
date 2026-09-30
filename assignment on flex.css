@@ -1,0 +1,106 @@
+.navbar {
+  background: black;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  position: relative;
+}
+.logo {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+.logo:hover {
+  color: yellow;
+  cursor: pointer;
+}
+.nav-items {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+.nav-link:hover {
+  color: yellow;
+  font-size: 1.1rem;
+}
+.patterncoding {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  
+}
+.card-container {
+  display: inline-block;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-left: 70px;
+  margin-top: 20px;
+}
+.card-item {
+  background-color: gold;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  flex: 1;
+  min-width: 400px;
+  max-width: 250px;
+  padding: 10px;
+  border-radius: 15px;
+}
+.empty-card {
+  background-color: wheat;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.subscribe{
+  font-size: 20px;
+}
+.sub{
+  color: black;
+  display: block;
+}
+.sub:hover{
+  color: brown;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+h7{
+  font-size: 30px;
+}
+h6{
+  font-size: 30px;
+}
+h5{
+  font-size: 30px;
+}
+h4{
+  font-size: 30px;
+}
+p{
+  font-size: 20px;
+}
+.mike{
+  font-size: 20px;
+}
+h8{
+  font-size: 30px;
+
+}
+.me{
+  font-size: 20px;
+  display: block;
+}
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}

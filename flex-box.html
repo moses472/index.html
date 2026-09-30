@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flex Box</title>
+    <link rel="stylesheet" href="flex-box.css">
+</head>
+<body>
+    <h2>🔹 1. Introduction to Flexbox</h2>
+  <p><strong>Flexbox (Flexible Box Layout)</strong> is a one-dimensional 
+        layout model that distributes space along a single axis (row or column) and aligns items within a container.
+    </p> 
+    
+   <div class="container">
+        <div class="flex-1">Home</div>
+        <div class="flex-2">About</div>
+        <div class="flex-3">Contact</div>
+        <div class="flex-4">Services</div>
+   </div>
+
+   <h2>🔹 2. Flex Container</h2>
+   <div class="flex-container">
+    <div class="first">Item 1</div>
+    <div class="second">Item 2</div>
+    <div class="third">Item 3</div>
+   </div>
+   <h2>🔹 3. Flex Direction and Wrap</h2>
+
+    <div class="flex-direction">
+    <div class="first">Item 1</div>
+    <div class="second">Item 2</div>
+    <div class="third">Item 3</div>
+   </div>
+ <h3>Flex Wrap Examples:</h3>
+
+  <div class="flex-wrap">
+    <div class="first">Item 1</div>
+    <div class="second">Item 2</div>
+    <div class="third">Item 3</div>
+    <div class="fourth">Item 4</div>
+    <div class="fifth">Item 5</div>
+    <div class="sixth">Item 6</div>
+    <div class="seventh">Item 7</div>
+    <div class="eight">Item 8</div>
+    <div class="nineth">Item 9</div>
+    <div class="tenth">Item 10</div>
+    <div class="sixth">Item 11</div>
+    <div class="sixth">Item 12</div>
+    <div class="sixth">Item 13</div>
+   </div>
+
+    <h2>🔹 4. Justify Content (Main Axis Alignment)</h2>
+    <p><strong>Justify Content aligns flex items along the MAIN AXIS (horizontal for row, vertical for column).</strong></p>
+  
+    <div class="live-demo">
+        <h3>Justify Content Examples (row direction):</h3>
+        
+        <p><strong>flex-start (default):</strong></p>
+        <div style="display: flex; justify-content:
+             flex-start; background: #e9ecef; padding: 10px; gap: 10px;">
+            <div class="flex-item" style="padding: 15px;">1</div>
+            <div class="flex-item" style="padding: 15px;">2</div>
+            <div class="flex-item" style="padding: 15px;">3</div>
+        </div>
+        
+        <p><strong>center:</strong></p>
+        <div style="display: flex; justify-content: center; background: #e9ecef; padding: 10px; gap: 10px;">
+            <div class="flex-item" style="padding: 15px;">1</div>
+            <div class="flex-item" style="padding: 15px;">2</div>
+            <div class="flex-item" style="padding: 15px;">3</div>
+        </div>
+        
+        <p><strong>flex-end:</strong></p>
+        <div style="display: flex; justify-content: flex-end; background: #e9ecef; padding: 10px; gap: 10px;">
+            <div class="flex-item" style="padding: 15px;">1</div>
+            <div class="flex-item" style="padding: 15px;">2</div>
+            <div class="flex-item" style="padding: 15px;">3</div>
+        </div>
+        
+        <p><strong>space-between:</strong></p>
+        <div style="display: flex; justify-content: space-between; background: #e9ecef; padding: 10px;">
+            <div class="flex-item" style="padding: 15px;">1</div>
+            <div class="flex-item" style="padding: 15px;">2</div>
+            <div class="flex-item" style="padding: 15px;">3</div>
+        </div>
+        
+        <p><strong>space-around:</strong></p>
+        <div style="display: flex; justify-content: space-around; background: #e9ecef; padding: 10px;">
+            <div class="flex-item" style="padding: 15px;">1</div>
+            <div class="flex-item" style="padding: 15px;">2</div>
+            <div class="flex-item" style="padding: 15px;">3</div>
+        </div>
+        
+        <p><strong>space-evenly:</strong></p>
+        <div style="display: flex; justify-content: space-evenly; background: #e9ecef; padding: 10px;">
+            <div class="flex-item" style="padding: 15px;">1</div>
+            <div class="flex-item" style="padding: 15px;">2</div>
+            <div class="flex-item" style="padding: 15px;">3</div>
+        </div>
+    </div>
+<h2>🔹 5. Align Items (Cross Axis Alignment)</h2>
+
+ <div class="live-demo">
+    <h3>Align Items Examples (row direction — cross axis is vertical):</h3>
+
+    <p><strong>stretch (default) — items fill container height:</strong></p>
+    <div style="display: flex; align-items: stretch; background: #e9ecef; padding: 10px; gap: 10px; height: 150px;">
+        <div class="flex-item" style="padding: 15px;">1</div>
+        <div class="flex-item" style="padding: 15px;">2<br>More content</div>
+        <div class="flex-item" style="padding: 15px;">3</div>
+    </div>
+
+    <p><strong>flex-start — items at top:</strong></p>
+    <div style="display: flex; align-items: flex-start; background: #e9ecef; padding: 10px; gap: 10px; height: 150px;">
+        <div class="flex-item" style="padding: 15px;">1</div>
+        <div class="flex-item" style="padding: 15px;">2<br>More content</div>
+        <div class="flex-item" style="padding: 15px;">3</div>
+    </div>
+
+    <p><strong>center — items vertically centered:</strong></p>
+    <div style="display: flex; align-items: center; background: #e9ecef; padding: 10px; gap: 10px; height: 150px;">
+        <div class="flex-item" style="padding: 15px;">1</div>
+        <div class="flex-item" style="padding: 15px;">2<br>More content</div>
+        <div class="flex-item" style="padding: 15px;">3</div>
+    </div>
+
+    <p><strong>flex-end — items at bottom:</strong></p>
+    <div style="display: flex; align-items: flex-end; background: #e9ecef; padding: 10px; gap: 10px; height: 150px;">
+        <div class="flex-item" style="padding: 15px;">1</div>
+        <div class="flex-item" style="padding: 15px;">2<br>More content</div>
+        <div class="flex-item" style="padding: 15px;">3</div>
+    </div>
+
+    <p><strong>baseline — items align by text baseline:</strong></p>
+    <div style="display: flex; align-items: baseline; background: #e9ecef; padding: 10px; gap: 10px; min-height: 150px;">
+        <div class="flex-item" style="padding: 15px; font-size: 12px;">Small text</div>
+        <div class="flex-item" style="padding: 15px; font-size: 24px;">Large text</div>
+        <div class="flex-item" style="padding: 15px; font-size: 18px;">Medium text</div>
+    </div>
+    </div>
+
+<h2>🔹 6. Flex Items (Individual Item Properties)</h2>
+ 
+<div class="live-demo">
+    <h3>Flex Grow Examples:</h3>
+    
+    <p><strong>flex: 1 — All items grow equally:</strong></p>
+    <div style="display: flex; gap: 10px; background: #e9ecef; padding: 10px;">
+        <div style="flex: 1; background: #007bff; color: white; padding: 15px; text-align: center;">flex: 1</div>
+        <div style="flex: 1; background: #28a745; color: white; padding: 15px; text-align: center;">flex: 1</div>
+        <div style="flex: 1; background: #dc3545; color: white; padding: 15px; text-align: center;">flex: 1</div>
+    </div>
+    
+    <p><strong>Different grow values (1, 2, 1):</strong></p>
+    <div style="display: flex; gap: 10px; background: #e9ecef; padding: 10px;">
+        <div style="flex: 1; background: #007bff; color: white; padding: 15px; text-align: center;">flex: 1</div>
+        <div style="flex: 2; background: #28a745; color: white; padding: 15px; text-align: center;">flex: 2 (twice as wide)</div>
+        <div style="flex: 1; background: #dc3545; color: white; padding: 15px; text-align: center;">flex: 1</div>
+    </div>
+    
+    <h3>Order Property Example:</h3>
+    <div style="display: flex; gap: 10px; background: #e9ecef; padding: 10px;">
+        <div style="order: 3; background: #007bff; color: white; padding: 15px;">Order: 3</div>
+        <div style="order: 1; background: #28a745; color: white; padding: 15px;">Order: 1 (first)</div>
+        <div style="order: 2; background: #dc3545; color: white; padding: 15px;">Order: 2 (second)</div>
+    </div>
+    <p><small>Items display in order of their order value (lowest to highest)</small></p>
+    
+    <h3>Flex Basis Example:</h3>
+    <div style="display: flex; gap: 10px; background: #e9ecef; padding: 10px;">
+        <div style="flex-basis: 100px; background: #007bff; color: white; padding: 15px; text-align: center;">basis: 100px</div>
+        <div style="flex-basis: 150px; background: #28a745; color: white; padding: 15px; text-align: center;">basis: 150px</div>
+        <div style="flex: 1; background: #dc3545; color: white; padding: 15px; text-align: center;">flex: 1 (fills remaining)</div>
+    </div>
+</div>
+
+    <h2>🔹 7. Align Self (Override Individual Items)</h2>
+ <div class="live-demo">
+    <h3>Align Self Examples:</h3>
+    <div style="display: flex; align-items: center; background: #e9ecef; padding: 10px; gap: 10px; height: 200px;">
+        <div style="align-self: flex-start; background: #007bff; color: white; padding: 15px;">flex-start</div>
+        <div style="align-self: center; background: #28a745; color: white; padding: 15px;">center</div>
+        <div style="align-self: flex-end; background: #dc3545; color: white; padding: 15px;">flex-end</div>
+        <div style="align-self: stretch; background: #ffc107; color: #333; padding: 15px; display: flex; align-items: center;">stretch</div>
+    </div>
+    <p><small>Each item overrides the container's center alignment with its own align-self value</small></p>
+</div>
+
+ <div class="navbar">
+    <div class="logo">🏠 Logo</div>
+    <div class="nav-items">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Services</a>
+        <a href="#" class="nav-link">Contact</a>
+    </div>
+    <button class="sign-in">Sign Up</button>
+</div>
+
+<div class="card-container">
+    <div class="card-item">
+        <div class="empty-card"></div>
+        <h3>Card title</h3>
+         <p>This is a card description. Flexbox makes responsive grids easy!</p>
+         <button class="learn-more">Learn More</button>
+    </div>
+    <div class="card-item">
+        <div class="empty-card"></div>
+        <h3>Another Card</h3>
+          <p>Cards automatically wrap to the next line when needed.</p>
+         <button class="learn-more">Contact Us</button>
+    </div>
+    <div class="card-item">
+        <div class="empty-card"></div>
+        <h3>last Card</h3>
+          <p>Flex-wrap: wrap + flex: 1 creates a beautiful responsive grid!</p>
+         <button class="learn-more">Contact Us</button>
+    </div>
+
+</div>
+</body>
+</html>
