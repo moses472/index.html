@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="./my logo.jpeg" type="image/x-icon">
+<title>YOUNG CODING - All Assignments</title>
+<script src="main.js"></script>
+<style>
+  body{background:#0f3285;color:white;font-family:Arial;padding:20px}
+  .container{max-width:750px;margin:auto}
+  .header{text-align:center;background:#063279;padding:20px;border-radius:15px;border:2px solid gold;margin-bottom:20px}
+  .header h1{color:gold;margin:0;font-size:32px}
+  .header p{color:#94a3b8}
+  .card{background:#1d488d;padding:20px;border-radius:12px;margin-bottom:20px;border-left:5px solid gold}
+  .card h2{color:gold}
+  button{background:gold;color:#1a3e92;border:none;padding:12px 20px;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:10px}
+  button:hover{background:#fbbf24}
+  .output{background:white;color:black;padding:15px;border-radius:8px;margin-top:15px;font-family:monospace;min-height:20px}
+  input{padding:10px;width:90%;border-radius:8px;border:none;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>YOUNG CODING <img src="./my logo.jpeg" width="50px" border-radius="50%"></h1>
+    <p>Nwichita Peter - Ebonyi State | JavaScript Assignments</p>
+  </div>
+
+  <!-- ASSIGNMENT 1 -->
+  <div class="card">
+    <h2>Assignment 1: Switch Variables</h2>
+    <p>Given: var a = "3"; var b = "8"; Switch them to a is 8, b is 3</p>
+    <button onclick="assignment1()">Run Assignment 1</button>
+    <div id="out1" class="output">Click button to see result...</div>
+  </div>
+
+  <!-- ASSIGNMENT 2 -->
+  <div class="card">
+    <h2>Assignment 2: Tweet Counter (50 chars)</h2>
+    <input id="tweetInput" type="text" placeholder="Enter your twit here...">
+    <button onclick="assignment2()">Check Tweet</button>
+    <div id="out2" class="output">Result will show here...</div>
+  </div>
+
+  <!-- ASSIGNMENT 3 -->
+  <div class="card">
+    <h2>Assignment 3: Capitalize Full Name</h2>
+    <p>e.g. aMa chinedu oGboNnaYa -> Ama Chinedu Ogbonnaya</p>
+    <input id="nameInput" type="text" placeholder="Enter full name...">
+    <button onclick="assignment3()">Capitalize Name</button>
+    <div id="out3" class="output">Result will show here...</div>
+  </div>
+</div>
+
+<script>
+function assignment1(){
+  var a = "3";
+  var b = "8";
+  var c = a;
+  a = b;
+  b = c;
+  document.getElementById("out1").innerHTML = "a is " + a + "<br>b is " + b;
+  console.log("a is " + b);
+  console.log("b is " + a);
+}
+
+function assignment2(){
+  let tweet = document.getElementById("tweetInput").value;
+  if(tweet === "") tweet = prompt("Enter your twit:");
+  let count = tweet.length;
+  let out = document.getElementById("out2");
+  
+  if(count <= 50){
+    let left = 50 - count;
+    out.innerHTML = "You have written " + count + " characters.<br>You have " + left + " characters left.";
+  } else {
+    let trimmed = tweet.slice(0,50);
+    out.innerHTML = "You have written 50 characters.<br>Your text has been trimmed: \"" + trimmed + "\"";
+  }
+}
+
+function assignment3(){
+  let fullName = document.getElementById("nameInput").value;
+  if(fullName === "") fullName = prompt("Enter your full name:");
+  
+  let words = fullName.toLowerCase().split(" ");
+  let capitalized = words.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+  
+  document.getElementById("out3").innerHTML = "Original: " + fullName + "<br><b>Capitalized: " + capitalized + "</b>";
+}
+</script>
+</body>
+</html>
